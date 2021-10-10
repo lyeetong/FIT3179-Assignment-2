@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/avg_deaths_by_regions_over_years.csv"
+  },
+  "mark": {"type": "rect"},
+  "encoding": {
+    "x": {
+      "field": "Region",
+      "type": "nominal",
+      "sort": "ascending",
+      "title": "Region"
+    },
+    "y": {
+      "field": "Death Factor",
+      "type": "nominal",
+      "sort": "ascending",
+      "title": "Factor"
+    },
+    "tooltip": {
+      "field": "Death Count",
+      "type": "quantitative",
+      "format": ".2f"
+    },
+    "color": {
+      "field": "Death Count",
+      "type": "quantitative",
+      "scale": {"scheme": "GoldRed", "type": "linear", "reverse": false},
+      "legend": {"title": "Frequency", "titleFontSize": 12, "titlePadding": 4}
+    }
+  },
+  "config": {
+    "axis": {
+      "grid": false,
+      "tickBand": "center",
+      "labelBaseline": "middle",
+      "titleFontSize": 11,
+      "labelFontSize": 10
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#FFF1F1",
+  "width": 700,
+  "height": 600,
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries",
+          "parse": {"properties.POP_EST": "number"}
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.NAME",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/avg_deaths_by_countries_over_years.csv"
+            },
+            "key": "Country",
+            "fields": [
+              "Smoking",
+              "Unsafe sex",
+              "Alcohol use",
+              "Drug use",
+              "Low physical activity",
+              "Diet low in fruits",
+              "Diet low in vegetables",
+              "Diet high in sodium",
+              "Diet low in whole grains",
+              "Diet low in nuts and seeds"
+            ]
+          }
+        },
+        {
+          "calculate": "parseFloat(datum.Smoking)+parseFloat(datum['Unsafe sex'])+parseFloat(datum['Alcohol use'])+parseFloat(datum['Low physical activity'])+parseFloat(datum['Drug use'])",
+          "as": "Death Count by Physical Habits"
+        },
+        {
+          "calculate": "parseFloat(datum['Diet low in vegetables'])+parseFloat(datum['Diet low in fruits'])+parseFloat(datum['Diet high in sodium'])+parseFloat(datum['Diet low in whole grains'])+parseFloat(datum['Diet low in nuts and seeds'])",
+          "as": "Death Count by Diet Practices"
+        },
+        {"calculate": "datum.properties.POP_EST", "as": "Population"},
+        {
+          "calculate": "datum['Death Count by Physical Habits']/datum.properties.POP_EST*100000",
+          "as": "Deaths per 100,000 Population by Physical Habits"
+        },
+        {
+          "calculate": "datum['Death Count by Diet Practices']/datum.properties.POP_EST*100000",
+          "as": "Deaths per 100,000 Population by Diet Practices"
+        },
+        {
+          "calculate": "datum['Deaths per 100,000 Population by Physical Habits']+datum['Deaths per 100,000 Population by Diet Practices']",
+          "as": "Deaths per 100,000 Population"
+        }
+      ],
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "Deaths per 100,000 Population",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [140, 280, 420, 560, 700, 840, 980],
+            "range": [
+              "#FFFFE0",
+              "#FFCB6E",
+              "#FF7F50",
+              "#FF6347",
+              "#FF4500",
+              "#DC143C",
+              "#B22222",
+              "#8B0000"
+            ]
+          },
+          "legend": {"orient": "bottom-right", "direction": "horizontal"}
+        },
+        "tooltip": [
+          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+          {
+            "field": "Deaths per 100,000 Population by Physical Habits",
+            "type": "quantitative",
+            "format": ".2f"
+          },
+          {
+            "field": "Deaths per 100,000 Population by Diet Practices",
+            "type": "quantitative",
+            "format": ".2f"
+          },
+          {
+            "field": "Deaths per 100,000 Population",
+            "type": "quantitative",
+            "format": ".2f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
