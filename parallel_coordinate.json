@@ -19,8 +19,8 @@
       }
     }
   },
-  "width": 600,
-  "height": 300,
+  "width": 500,
+  "height": 350,
   "transform": [
     {"filter": "datum['Diet high in sodium']"},
     {"window": [{"op": "count", "as": "index"}]},
