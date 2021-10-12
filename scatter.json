@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background":"black",
   "description": "An interactive scatter plot of global health statistics by country and year.",
   "data": {
     "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/deaths_by_factors.csv",
@@ -76,6 +77,11 @@
           "encoding": {
             "detail": {"field": "Country"},
             "order": {"field": "Year"},
+            "color": {
+      "field": "Region",
+      "type": "nominal",
+      "scale": {"scheme": "category20"},
+      "legend": {"orient": "right", "padding": 20, "titleColor": "white", "labelColor": "white"}},
             "opacity": {
               "condition": {
                 "test": {
@@ -161,11 +167,11 @@
                 "type": "text",
                 "yOffset": -12,
                 "fontSize": 12,
-                "color": "gray"
+                "color": "floralwhite"
               },
               "encoding": {"text": {"field": "Year"}}
             },
-            {"mark": {"type": "circle", "color": "gray"}}
+            {"mark": {"type": "circle", "color": "white"}}
           ]
         }
       ]
