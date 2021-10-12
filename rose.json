@@ -5,7 +5,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/deaths_by_factors_categories.csv"
   },
-  "width": 360,
+  "width": 355,
   "height": 350,
   "params": [
     {
@@ -27,7 +27,7 @@
   "layer": [
     {"mark": {"type": "arc", "innerRadius": 20}},
     {
-      "mark": {"type": "text", "radiusOffset": 20},
+      "mark": {"type": "text", "radiusOffset": -15, "fill": "black"},
       "encoding": {
         "text": {"field": "percentage", "type": "quantitative", "format": ".2f"}
       }
