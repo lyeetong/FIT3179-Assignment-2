@@ -5,8 +5,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/deaths_by_factors_categories.csv"
   },
-  "width": 300,
-  "height": 350,
+  "width": 400,
+  "height": 400,
   "params": [
     {
       "name": "FactorCategory_selection",
