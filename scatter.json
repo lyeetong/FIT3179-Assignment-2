@@ -12,8 +12,8 @@
       }
     }
   },
-  "width": 500,
-  "height": 350,
+  "width": 650,
+  "height": 400,
   "layer": [
     {
       "transform": [
@@ -58,13 +58,13 @@
           "field": "Physical Practices Deaths",
           "type": "quantitative",
           "scale": {"domain": [30, 3300000]},
-          "axis": {"tickCount": 5, "title": "Physical Practices Deaths"}
+          "axis": {"tickCount": 5, "title": "Physical Practices Deaths", "titleColor": "white"}
         },
         "y": {
           "field": "Diet Practices Deaths",
           "type": "quantitative",
           "scale": {"domain": [30, 4000000]},
-          "axis": {"tickCount": 5, "title": "Diet Practices Deaths"}
+          "axis": {"tickCount": 5, "title": "Diet Practices Deaths", "titleColor": "white"}
         }
       },
       "layer": [
