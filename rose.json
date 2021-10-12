@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "black",
   "description": "A simple radial chart with embedded data.",
   "data": {
     "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/deaths_by_factors_categories.csv"
@@ -24,9 +25,9 @@
     {"calculate": "datum['Death Count']/1325548.002620273", "as": "percentage"}
   ],
   "layer": [
-    {"mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}},
+    {"mark": {"type": "arc", "innerRadius": 20}},
     {
-      "mark": {"type": "text", "radiusOffset": 10},
+      "mark": {"type": "text", "radiusOffset": 20},
       "encoding": {
         "text": {"field": "percentage", "type": "quantitative", "format": ".2f"}
       }
@@ -36,22 +37,22 @@
     "theta": {"field": "Death Count", "type": "quantitative", "stack": true},
     "radius": {
       "field": "Death Count",
-      "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}
+      "scale": {"type": "sqrt", "zero": true, "rangeMin": 140}
     },
     "color": {
-      "field": "Factor",
+      "field": "Factor Category",
       "type": "nominal",
-      "scale": {"scheme": "category20"},
-      "legend": {"title": "Factors", "orient": "right", "padding": 50}
+      "scale": {"scheme": "pastel1"},
+      "legend": {"title": "Factors", "orient": "right", "padding": 50, "titleColor": "white", "labelColor": "white"}
     },
     "order": {"field": "Death Count", "type": "quantitative"},
     "tooltip": [
       {"field": "Factor", "type": "nominal"},
-      {"field": "Death Count", "type": "quantitative"}
+      {"field": "Death Count", "type": "quantitative", "format": ".2f"}
     ],
-    "opacity": {"value": 0.8},
-    "strokeOpacity": {"value": 0.8},
-    "strokeWidth": {"value": 2},
+    "opacity": {"value": 1},
+    "strokeOpacity": {"value": 0.5},
+    "strokeWidth": {"value": 1.5},
     "stroke": {"value": "white"}
   },
   "config": {}
