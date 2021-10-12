@@ -112,7 +112,7 @@
               "#8B0000"
             ]
           },
-          "legend": {"orient": "bottom-right", "direction": "horizontal"}
+          "legend": {"orient": "top-left", "direction": "horizontal", "labelColor": "white", "titleColor": "white"}
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
