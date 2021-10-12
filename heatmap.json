@@ -3,7 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/avg_deaths_by_regions_over_years.csv"
   },
-  "width": 300,
+  "width": 250,
   "height": 350,
   "mark": {"type": "rect"},
   "encoding": {
