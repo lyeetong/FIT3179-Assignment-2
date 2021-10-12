@@ -23,9 +23,10 @@
       "mark": {
         "type": "text",
         "fontSize": 100,
-        "x": 420,
-        "y": 250,
-        "opacity": 0.06
+        "x": 250,
+        "y": 180,
+        "opacity": 0.25,
+        "color": "white"
       },
       "encoding": {"text": {"field": "Year"}}
     },
