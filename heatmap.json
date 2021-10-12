@@ -1,5 +1,5 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json","background":"black",
   "data": {
     "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/avg_deaths_by_regions_over_years.csv"
   },
@@ -28,7 +28,7 @@
       "field": "Death Count",
       "type": "quantitative",
       "scale": {"scheme": "GoldRed", "type": "linear", "reverse": false},
-      "legend": {"title": "Frequency", "titleFontSize": 12, "titlePadding": 4}
+      "legend": {"title": "Frequency", "titleFontSize": 12, "titlePadding": 4, "titleColor": "white", "labelColor": "white"}
     }
   },
   "config": {
@@ -37,7 +37,9 @@
       "tickBand": "center",
       "labelBaseline": "middle",
       "titleFontSize": 11,
-      "labelFontSize": 10
+      "titleColor": "white",
+      "labelFontSize": 10,
+      "labelColor": "white"
     }
   }
 }
