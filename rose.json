@@ -43,7 +43,7 @@
       "field": "Factor Category",
       "type": "nominal",
       "scale": {"scheme": "pastel1"},
-      "legend": {"title": "Factors", "orient": "right", "padding": 20, "titleColor": "white", "labelColor": "white"}
+      "legend": {"title": "Factors", "orient": "bottom", "padding": 20, "titleColor": "white", "labelColor": "white"}
     },
     "order": {"field": "Death Count", "type": "quantitative"},
     "tooltip": [
