@@ -5,8 +5,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/deaths_by_factors_categories.csv"
   },
-  "width": 355,
-  "height": 350,
+  "width": "container",
+  "height": 400,
   "params": [
     {
       "name": "FactorCategory_selection",
@@ -27,7 +27,7 @@
   "layer": [
     {"mark": {"type": "arc", "innerRadius": 20}},
     {
-      "mark": {"type": "text", "radiusOffset": -15, "fill": "black"},
+      "mark": {"type": "text", "radiusOffset": -18, "fill": "black", "fontSize":16},
       "encoding": {
         "text": {"field": "percentage", "type": "quantitative", "format": ".2f"}
       }
@@ -37,13 +37,13 @@
     "theta": {"field": "Death Count", "type": "quantitative", "stack": true},
     "radius": {
       "field": "Death Count",
-      "scale": {"type": "sqrt", "zero": true, "rangeMin": 50}
+      "scale": {"type": "sqrt", "zero": true, "rangeMin": 100}
     },
     "color": {
       "field": "Factor Category",
       "type": "nominal",
       "scale": {"scheme": "pastel1"},
-      "legend": {"title": "Factors", "orient": "bottom", "padding": 20, "titleColor": "white", "labelColor": "white"}
+      "legend": {"title": "Factors", "orient": "none", "padding": 50, "titleColor": "white", "labelColor": "white", "labelFontSize": 12, "direction": "horizontal", "titleAnchor": "middle", "titleFontWeight":"bold", "titleFontSize": 13, "legendX": 88, "legendY": 360}
     },
     "order": {"field": "Death Count", "type": "quantitative"},
     "tooltip": [
@@ -55,5 +55,5 @@
     "strokeWidth": {"value": 1.5},
     "stroke": {"value": "white"}
   },
-  "config": {}
+  "config": {"view": {"stroke": "transparent"}}
 }
