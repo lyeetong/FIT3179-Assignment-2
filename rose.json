@@ -43,7 +43,7 @@
       "field": "Factor Category",
       "type": "nominal",
       "scale": {"scheme": "pastel1"},
-      "legend": {"title": "Factors", "orient": "none", "padding": 50, "titleColor": "white", "labelColor": "white", "labelFontSize": 12, "direction": "horizontal", "titleAnchor": "middle", "titleFontWeight":"bold", "titleFontSize": 13, "legendX": 80, "legendY": 360}
+      "legend": {"title": "Factors", "orient": "none", "padding": 50, "titleColor": "white", "labelLimit": 0, "labelColor": "white", "labelFontSize": 12, "direction": "horizontal", "titleAnchor": "middle", "titleFontWeight":"bold", "titleFontSize": 13, "legendX": 80, "legendY": 360}
     },
     "order": {"field": "Death Count", "type": "quantitative"},
     "tooltip": [
