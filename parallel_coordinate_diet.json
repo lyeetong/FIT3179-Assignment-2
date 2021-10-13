@@ -7,13 +7,8 @@
       "type": "csv",
       "parse": {
         "Year": "number",
-        "Alcohol use": "number",
-        "Drug use": "number",
         "Diet low in fruits": "number",
         "Diet low in vegetables": "number",
-        "Unsafe sex": "number",
-        "Low physical activity": "number",
-        "Smoking": "number",
         "Diet high in sodium": "number",
         "Diet low in whole grains": "number",
         "Diet low in nuts and seeds": "number"
