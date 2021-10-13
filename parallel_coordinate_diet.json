@@ -16,8 +16,8 @@
     }
   },
   "width": "container",
-  "height": 330,
-  "padding": {"top": 20, "bottom": 20},
+  "height": 350,
+  "padding": {"top": 30, "bottom": 20},
 
   "transform": [
     {"filter": "datum['Diet high in sodium']"},
