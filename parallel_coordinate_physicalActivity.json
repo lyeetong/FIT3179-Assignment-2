@@ -1,0 +1,165 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "black",
+  "data": {
+    "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/deaths_by_countries_regions_years.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Year": "number",
+        "Alcohol use": "number",
+        "Drug use": "number",
+        "Unsafe sex": "number",
+        "Low physical activity": "number",
+        "Smoking": "number"
+      }
+    }
+  },
+  "width": "container",
+  "height": 330,
+  "padding": {"top": 20, "bottom": 20},
+  "transform": [
+    {"filter": "datum['Alcohol use']"},
+    {"window": [{"op": "count", "as": "index"}]},
+    {
+      "fold": [
+        "Alcohol use",
+        "Drug use",
+        "Unsafe sex",
+        "Low physical activity",
+        "Smoking"
+      ]
+    },
+    {
+      "joinaggregate": [
+        {"op": "min", "field": "value", "as": "min"},
+        {"op": "max", "field": "value", "as": "max"}
+      ],
+      "groupby": ["key"]
+    },
+    {
+      "calculate": "(datum.value - datum.min) / (datum.max-datum.min)",
+      "as": "norm_val"
+    },
+    {"calculate": "(datum.min + datum.max) / 2", "as": "mid"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rule", "color": "#ccc"},
+      "encoding": {"detail": {"aggregate": "count"}, "x": {"field": "key"}}
+    },
+    {
+      "mark": "line",
+          "params": [
+            {"name": "grid", "select": "interval", "bind": "scales"},
+            {
+              "name": "Year",
+              "value": [{"Year": 2015}],
+              "select": {"type": "point", "fields": ["Year"]},
+              "bind": {
+                "name": "Year",
+                "input": "range",
+                "min": 2010,
+                "max": 2017,
+                "step": 1
+              }
+            },
+            {
+              "name": "hovered",
+              "select": {
+                "type": "point",
+                "fields": ["Region"],
+                "toggle": false,
+                "on": "mouseover"
+              }
+            },
+            {
+              "name": "clicked",
+              "select": {"type": "point", "fields": ["Region"]}
+            }
+          ],
+          "transform": [{"filter": {"param": "Year"}}],
+      "encoding": {
+        "color": {"type": "nominal", "field": "Region", "scale": {"scheme": "category20"},     "legend": null},
+        "detail": {"type": "nominal", "field": "index"},
+        "opacity": {
+              "condition": {
+                "test": {
+                  "or": [
+                    {"param": "hovered", "empty": false},
+                    {"param": "clicked", "empty": false}
+                  ]
+                },
+                "value": 0.8
+              },
+              "value": 0
+            },
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"type": "quantitative", "field": "norm_val", "axis": null},
+        "tooltip": [
+          {"type": "quantitative", "field": "Alcohol use", "format": ".2f"},          {"type": "quantitative", "field": "Drug use", "format": ".2f"},
+          {"type": "quantitative", "field": "Low physical activity", "format": ".2f"},
+          {"type": "quantitative", "field": "Smoking", "format": ".2f"},
+          {"type": "quantitative", "field": "Unsafe sex", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "encoding": {"x": {"type": "nominal", "field": "key"}, "y": {"value": 0}},
+      "layer": [
+        {
+          "mark": {"type": "text", "style": "label"},
+          "encoding": {
+            "text": {"aggregate": "max", "field": "max", "format": ".0f"}
+          }
+        },
+        {"mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}}
+      ]
+    },
+    {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 150}
+      },
+      "layer": [
+        {
+          "mark": {"type": "text", "style": "label"},
+          "encoding": {
+            "text": {"aggregate": "min", "field": "mid", "format": ".0f"}
+          }
+        },
+        {"mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}}
+      ]
+    },
+    {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 300}
+      },
+      "layer": [
+        {
+          "mark": {"type": "text", "style": "label"},
+          "encoding": {
+            "text": {"aggregate": "min", "field": "min", "format": ".0f"}
+          }
+        },
+        {"mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}}
+      ]
+    }
+  ],
+  "config": {
+
+    "axisX": {
+      "domain": false,
+      "labelAngle": -90,
+      "tickColor": "#ccc",
+      "title": null,
+      "labelColor": "white"
+    },
+    "view": {"stroke": "transparent"},
+    "style": {
+      "label": {"baseline": "middle", "align": "right", "dx": -5, "color": "white"},
+      "tick": {"orient": "horizontal"}
+    }
+  }
+}
