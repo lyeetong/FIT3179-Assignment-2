@@ -81,7 +81,7 @@
           ],
           "transform": [{"filter": {"param": "Year"}}],
       "encoding": {
-        "color": {"type": "nominal", "field": "Region", "scale": {"scheme": "category20"}, "legend":{"labelColor":"white", "titleColor": "white"}},
+        "color": {"type": "nominal", "field": "Region", "scale": {"scheme": "category20"}, "legend": null},
         "detail": {"type": "nominal", "field": "index"},
         "opacity": {
               "condition": {
@@ -98,7 +98,9 @@
         "x": {"type": "nominal", "field": "key"},
         "y": {"type": "quantitative", "field": "norm_val", "axis": null},
         "tooltip": [
-          {"type": "quantitative", "field": "Diet high in sodium", "format": ".2f"},          {"type": "quantitative", "field": "Diet low in fruits", "format": ".2f"},
+          {"type": "nominal", "field": "Region"},
+          {"type": "quantitative", "field": "Diet high in sodium", "format": ".2f"},          
+          {"type": "quantitative", "field": "Diet low in fruits", "format": ".2f"},
           {"type": "quantitative", "field": "Diet low in nuts and seeds", "format": ".2f"},
           {"type": "quantitative", "field": "Diet low in vegetables", "format": ".2f"},
           {"type": "quantitative", "field": "Diet low in whole grains", "format": ".2f"}
