@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "black",
   "data": {
     "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/deaths_by_countries_regions_years.csv",
     "format": {
@@ -19,8 +20,10 @@
       }
     }
   },
-  "width": 500,
-  "height": 350,
+  "width": "container",
+  "height": 330,
+  "padding": {"top": 20, "bottom": 20},
+
   "transform": [
     {"filter": "datum['Diet high in sodium']"},
     {"window": [{"op": "count", "as": "index"}]},
@@ -53,18 +56,57 @@
     },
     {
       "mark": "line",
+          "params": [
+            {"name": "grid", "select": "interval", "bind": "scales"},
+            {
+              "name": "Year",
+              "value": [{"Year": 2015}],
+              "select": {"type": "point", "fields": ["Year"]},
+              "bind": {
+                "name": "Year",
+                "input": "range",
+                "min": 2010,
+                "max": 2017,
+                "step": 1
+              }
+            },
+            {
+              "name": "hovered",
+              "select": {
+                "type": "point",
+                "fields": ["Region"],
+                "toggle": false,
+                "on": "mouseover"
+              }
+            },
+            {
+              "name": "clicked",
+              "select": {"type": "point", "fields": ["Region"]}
+            }
+          ],
+          "transform": [{"filter": {"param": "Year"}}],
       "encoding": {
-        "color": {"type": "nominal", "field": "Region"},
+        "color": {"type": "nominal", "field": "Region", "scale": {"scheme": "category20"}, "legend":{"labelColor":"white", "titleColor": "white"}},
         "detail": {"type": "nominal", "field": "index"},
-        "opacity": {"value": 0.3},
+        "opacity": {
+              "condition": {
+                "test": {
+                  "or": [
+                    {"param": "hovered", "empty": false},
+                    {"param": "clicked", "empty": false}
+                  ]
+                },
+                "value": 0.8
+              },
+              "value": 0
+            },
         "x": {"type": "nominal", "field": "key"},
         "y": {"type": "quantitative", "field": "norm_val", "axis": null},
         "tooltip": [
-          {"type": "quantitative", "field": "Diet high in sodium"},
-          {"type": "quantitative", "field": "Diet low in vegetables"},
-          {"type": "quantitative", "field": "Diet low in fruits"},
-          {"type": "quantitative", "field": "Diet low in whole grains"},
-          {"type": "quantitative", "field": "Diet low in nuts and seeds"}
+          {"type": "quantitative", "field": "Diet high in sodium", "format": ".2f"},          {"type": "quantitative", "field": "Diet low in fruits", "format": ".2f"},
+          {"type": "quantitative", "field": "Diet low in nuts and seeds", "format": ".2f"},
+          {"type": "quantitative", "field": "Diet low in vegetables", "format": ".2f"},
+          {"type": "quantitative", "field": "Diet low in whole grains", "format": ".2f"}
         ]
       }
     },
@@ -74,7 +116,7 @@
         {
           "mark": {"type": "text", "style": "label"},
           "encoding": {
-            "text": {"aggregate": "max", "field": "max", "format": ".2f"}
+            "text": {"aggregate": "max", "field": "max", "format": ".0f"}
           }
         },
         {"mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}}
@@ -89,7 +131,7 @@
         {
           "mark": {"type": "text", "style": "label"},
           "encoding": {
-            "text": {"aggregate": "min", "field": "mid", "format": ".2f"}
+            "text": {"aggregate": "min", "field": "mid", "format": ".0f"}
           }
         },
         {"mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}}
@@ -104,7 +146,7 @@
         {
           "mark": {"type": "text", "style": "label"},
           "encoding": {
-            "text": {"aggregate": "min", "field": "min", "format": ".2f"}
+            "text": {"aggregate": "min", "field": "min", "format": ".0f"}
           }
         },
         {"mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}}
@@ -114,13 +156,14 @@
   "config": {
     "axisX": {
       "domain": false,
-      "labelAngle": 0,
+      "labelAngle": -90,
       "tickColor": "#ccc",
-      "title": null
+      "title": null,
+      "labelColor": "white"
     },
-    "view": {"stroke": null},
+    "view": {"stroke": "transparent"},
     "style": {
-      "label": {"baseline": "middle", "align": "right", "dx": -5},
+      "label": {"baseline": "middle", "align": "right", "dx": -5, "color": "white"},
       "tick": {"orient": "horizontal"}
     }
   }
