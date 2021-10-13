@@ -52,7 +52,6 @@
     {
       "mark": "line",
           "params": [
-            {"name": "grid", "select": "interval", "bind": "scales"},
             {
               "name": "Year",
               "value": [{"Year": 2015}],
