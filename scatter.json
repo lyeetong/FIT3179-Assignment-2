@@ -44,10 +44,8 @@
                 {"id": "Sub-Saharan Africa", "name": "Sub-Saharan Africa"},
                 {"id": "North America", "name": "North America"},
                 {"id": "Oceania", "name": "Oceania"},
-                {
-                  "id": "Latin America and Carribean",
-                  "name": "Latin America and Carribean"
-                }
+                {"id": "Latin America and Carribean", "name": "Latin America and Carribean"},
+                {"id": "North Africa and Middle East", "name": "North Africa and Middle East"}
               ]
             }
           }
