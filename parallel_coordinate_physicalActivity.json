@@ -97,7 +97,9 @@
         "x": {"type": "nominal", "field": "key"},
         "y": {"type": "quantitative", "field": "norm_val", "axis": null},
         "tooltip": [
-          {"type": "quantitative", "field": "Alcohol use", "format": ".2f"},          {"type": "quantitative", "field": "Drug use", "format": ".2f"},
+          {"type": "nominal", "field": "Region"},
+          {"type": "quantitative", "field": "Alcohol use", "format": ".2f"},          
+          {"type": "quantitative", "field": "Drug use", "format": ".2f"},
           {"type": "quantitative", "field": "Low physical activity", "format": ".2f"},
           {"type": "quantitative", "field": "Smoking", "format": ".2f"},
           {"type": "quantitative", "field": "Unsafe sex", "format": ".2f"}
