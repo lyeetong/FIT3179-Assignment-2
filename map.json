@@ -3,7 +3,7 @@
   "background": "black",
   "width": "container",
   "height": 500,
-
+  "padding": {"left": 10},
   "params":[
   {
  "name": "zoom_level",
