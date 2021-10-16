@@ -27,7 +27,12 @@
   "layer": [
     {"mark": {"type": "arc", "innerRadius": 20}},
     {
-      "mark": {"type": "text", "radiusOffset": -18, "fill": "black", "fontSize":16},
+      "mark": {
+        "type": "text",
+        "radiusOffset": -18,
+        "fill": "white",
+        "fontSize": 16
+      },
       "encoding": {
         "text": {"field": "percentage", "type": "quantitative", "format": ".2f"}
       }
@@ -40,19 +45,21 @@
       "scale": {"type": "sqrt", "zero": true, "rangeMin": 100}
     },
     "color": {
-      "field": "Factor Category",
-      "type": "nominal",
-      "scale": {"scheme": "pastel1"},
-      "legend": {"title": "Factors", "orient": "none", "padding": 50, "titleColor": "white", "labelLimit": 0, "labelColor": "white", "labelFontSize": 12, "direction": "horizontal", "titleAnchor": "middle", "titleFontWeight":"bold", "titleFontSize": 13, "legendX": 60, "legendY": 360}
+      "condition": {
+        "test": "datum['Factor Category'] == 'Diet Practices'",
+        "value": "#EC828F"
+      },
+      "value": "#80D2FC"
     },
     "order": {"field": "Death Count", "type": "quantitative"},
     "tooltip": [
       {"field": "Factor", "type": "nominal"},
+      {"field": "Factor Category", "type": "nominal"},
       {"field": "Death Count", "type": "quantitative", "format": ".2f"}
     ],
     "opacity": {"value": 1},
     "strokeOpacity": {"value": 0.5},
-    "strokeWidth": {"value": 1.5},
+    "strokeWidth": {"value": 1.2},
     "stroke": {"value": "white"}
   },
   "config": {"view": {"stroke": "transparent"}}
