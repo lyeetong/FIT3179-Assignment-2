@@ -4,34 +4,49 @@
   "width": "container",
   "height": 500,
   "padding": {"left": 10},
-  "params":[
-  {
- "name": "zoom_level",
- "value": 150,
- "bind": {
- "input": "range",
- "min": 100,
- "max": 300,
- "step": 50,
- "name": "Zoom: "
- }
- }, {
- "name": "center_to",
- "value": [0,0],
- "bind": {
- "input": "select",
- "options": [
-  [0, 0],
- [81, 144],
- [-60, -22],
- [9, 1],
- [130, -30], [-90, 120]
- ],
- "labels": ["Whole map", "Asia & Europe", "South America", "Africa", "Asia Pacific", "North America"],
- "name": "Map Centre: "
- }
- }],
-   "projection": {"type": "equalEarth",  "scale": {"expr": "zoom_level"}, "rotate": [-20, 0, 0], "center":  {"expr": "center_to"}},
+  "params": [
+    {
+      "name": "zoom_level",
+      "value": 150,
+      "bind": {
+        "input": "range",
+        "min": 100,
+        "max": 300,
+        "step": 50,
+        "name": "Zoom: "
+      }
+    },
+    {
+      "name": "center_to",
+      "value": [0, 0],
+      "bind": {
+        "input": "select",
+        "options": [
+          [0, 0],
+          [81, 144],
+          [-60, -22],
+          [9, 1],
+          [130, -30],
+          [-90, 120]
+        ],
+        "labels": [
+          "Whole map",
+          "Asia & Europe",
+          "South America",
+          "Africa",
+          "Asia Pacific",
+          "North America"
+        ],
+        "name": "Map Centre: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "equalEarth",
+    "scale": {"expr": "zoom_level"},
+    "rotate": [-20, 0, 0],
+    "center": {"expr": "center_to"}
+  },
   "layer": [
     {
       "data": {
@@ -90,13 +105,13 @@
         },
         {
           "calculate": "datum['Deaths by Physical Habits']+datum['Deaths by Diet Practices']",
-          "as": "Total Deaths"
+          "as": "Total Deaths per 100,000 Population"
         }
       ],
       "mark": {"type": "geoshape"},
       "encoding": {
         "color": {
-          "field": "Total Deaths",
+          "field": "Total Deaths per 100,000 Population",
           "type": "quantitative",
           "scale": {
             "type": "threshold",
@@ -112,7 +127,12 @@
               "#8B0000"
             ]
           },
-          "legend": {"orient": "top-left", "direction": "horizontal", "labelColor": "white", "titleColor": "white"}
+          "legend": {
+            "orient": "top-left",
+            "direction": "horizontal",
+            "labelColor": "white",
+            "titleColor": "white"
+          }
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
@@ -126,11 +146,7 @@
             "type": "quantitative",
             "format": ".2f"
           },
-          {
-            "field": "Total Deaths",
-            "type": "quantitative",
-            "format": ".2f"
-          }
+          {"field": "Total Deaths", "type": "quantitative", "format": ".2f"}
         ]
       }
     }
