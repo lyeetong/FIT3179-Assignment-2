@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "background":"black",
+  "background": "black",
   "description": "An interactive scatter plot of global health statistics by country and year.",
   "data": {
     "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/deaths_by_factors.csv",
@@ -44,8 +44,14 @@
                 {"id": "Sub-Saharan Africa", "name": "Sub-Saharan Africa"},
                 {"id": "North America", "name": "North America"},
                 {"id": "Oceania", "name": "Oceania"},
-                {"id": "Latin America and Carribean", "name": "Latin America and Carribean"},
-                {"id": "North Africa and Middle East", "name": "North Africa and Middle East"}
+                {
+                  "id": "Latin America and Carribean",
+                  "name": "Latin America and Carribean"
+                },
+                {
+                  "id": "North Africa and Middle East",
+                  "name": "North Africa and Middle East"
+                }
               ]
             }
           }
@@ -56,13 +62,23 @@
           "field": "Physical Practices Deaths",
           "type": "quantitative",
           "scale": {"domain": [30, 3300000]},
-          "axis": {"tickCount": 5, "title": "Physical Practices Deaths", "titleColor": "white", "labelColor": "white"}
+          "axis": {
+            "tickCount": 5,
+            "title": "Physical Practices Deaths",
+            "titleColor": "white",
+            "labelColor": "white"
+          }
         },
         "y": {
           "field": "Diet Practices Deaths",
           "type": "quantitative",
           "scale": {"domain": [30, 4000000]},
-          "axis": {"tickCount": 5, "title": "Diet Practices Deaths", "titleColor": "white", "labelColor": "white"}
+          "axis": {
+            "tickCount": 5,
+            "title": "Diet Practices Deaths",
+            "titleColor": "white",
+            "labelColor": "white"
+          }
         }
       },
       "layer": [
@@ -77,10 +93,16 @@
             "detail": {"field": "Country"},
             "order": {"field": "Year"},
             "color": {
-      "field": "Region",
-      "type": "nominal",
-      "scale": {"scheme": "category20"},
-      "legend": {"orient": "right", "padding": 20, "titleColor": "white", "labelColor": "white"}},
+              "field": "Region",
+              "type": "nominal",
+              "scale": {"scheme": "category20"},
+              "legend": {
+                "orient": "right",
+                "padding": 20,
+                "titleColor": "white",
+                "labelColor": "white"
+              }
+            },
             "opacity": {
               "condition": {
                 "test": {
@@ -125,11 +147,29 @@
             }
           ],
           "transform": [{"filter": {"param": "Year"}}],
-          "mark": {"type": "circle", "size": 100, "opacity": 0.9, "tooltip": true},
-          "encoding": {"tooltip": [
-      {"field": "Region", "type": "nominal"},
-      {"field": "Physical Practices Deaths", "type": "quantitative", "format": ".2f"}, {"field": "Diet Practices Deaths", "type": "quantitative", "format": ".2f"}
-    ], "color": {"field": "name", "title": "Region"}}
+          "mark": {
+            "type": "circle",
+            "size": 210,
+            "opacity": 0.9,
+            "tooltip": true
+          },
+          "encoding": {
+            "tooltip": [
+              {"field": "Region", "type": "nominal"},
+              {"field": "Country", "type": "nominal"},
+              {
+                "field": "Physical Practices Deaths",
+                "type": "quantitative",
+                "format": ".2f"
+              },
+              {
+                "field": "Diet Practices Deaths",
+                "type": "quantitative",
+                "format": ".2f"
+              }
+            ],
+            "color": {"field": "name", "title": "Region"}
+          }
         },
         {
           "transform": [
@@ -149,8 +189,8 @@
           ],
           "mark": {
             "type": "text",
-            "yOffset": -12,
-            "fontSize": 12,
+            "yOffset": -15,
+            "fontSize": 18,
             "fontWeight": "bold"
           },
           "encoding": {
@@ -167,7 +207,7 @@
             {
               "mark": {
                 "type": "text",
-                "yOffset": -12,
+                "xOffset": 25,
                 "fontSize": 12,
                 "color": "floralwhite"
               },
