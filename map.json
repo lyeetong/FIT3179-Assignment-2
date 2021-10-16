@@ -146,7 +146,7 @@
             "type": "quantitative",
             "format": ".2f"
           },
-          {"field": "Total Deaths", "type": "quantitative", "format": ".2f"}
+          {"field": "Deaths per 100,000 Population", "type": "quantitative", "format": ".2f"}
         ]
       }
     }
