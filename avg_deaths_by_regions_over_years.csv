@@ -1,0 +1,71 @@
+,Region,Death Factor,Death Count
+0,Asia,Alcohol use,25965.01498
+1,Asia,Drug use,10156.42894
+2,Asia,Unsafe sex,5895.322644
+3,Asia,Smoking,247308.0143
+4,Asia,Low physical activity,36733.52447
+5,Asia,Diet low in fruits,48514.45193
+6,Asia,Diet low in vegetables,17354.660640000002
+7,Asia,Diet high in sodium,97570.02653999999
+8,Asia,Diet low in whole grains,49623.914560000005
+9,Asia,Diet low in nuts and seeds,35598.0467
+10,Oceania,Alcohol use,7833.073042
+11,Oceania,Drug use,2766.602993
+12,Oceania,Unsafe sex,621.0960639
+13,Oceania,Smoking,24154.48038
+14,Oceania,Low physical activity,5639.58687
+15,Oceania,Diet low in fruits,5243.6564579999995
+16,Oceania,Diet low in vegetables,4479.846984000001
+17,Oceania,Diet high in sodium,3451.7376679999998
+18,Oceania,Diet low in whole grains,7585.081536
+19,Oceania,Diet low in nuts and seeds,5368.6256969999995
+20,Europe,Alcohol use,464425.2351
+21,Europe,Drug use,66848.1638
+22,Europe,Unsafe sex,31813.20545
+23,Europe,Smoking,792958.1252
+24,Europe,Low physical activity,228193.6355
+25,Europe,Diet low in fruits,323694.1229
+26,Europe,Diet low in vegetables,170877.9072
+27,Europe,Diet high in sodium,290186.1355
+28,Europe,Diet low in whole grains,466617.1369
+29,Europe,Diet low in nuts and seeds,342855.3264
+30,Latin America and Caribbean,Alcohol use,194906.7307
+31,Latin America and Caribbean,Drug use,34482.47598
+32,Latin America and Caribbean,Unsafe sex,64617.66562000001
+33,Latin America and Caribbean,Smoking,316572.9102
+34,Latin America and Caribbean,Low physical activity,66615.70893
+35,Latin America and Caribbean,Diet low in fruits,74956.22334
+36,Latin America and Caribbean,Diet low in vegetables,96481.43001
+37,Latin America and Caribbean,Diet high in sodium,93322.00796
+38,Latin America and Caribbean,Diet low in whole grains,126983.3324
+39,Latin America and Caribbean,Diet low in nuts and seeds,116685.8558
+40,North Africa and Middle East,Alcohol use,26544.5478
+41,North Africa and Middle East,Drug use,22559.623040000002
+42,North Africa and Middle East,Unsafe sex,11546.59133
+43,North Africa and Middle East,Smoking,285796.0398
+44,North Africa and Middle East,Low physical activity,102896.455
+45,North Africa and Middle East,Diet low in fruits,103452.7679
+46,North Africa and Middle East,Diet low in vegetables,55549.885
+47,North Africa and Middle East,Diet high in sodium,76908.5084
+48,North Africa and Middle East,Diet low in whole grains,225768.4612
+49,North Africa and Middle East,Diet low in nuts and seeds,146605.3295
+50,North America,Alcohol use,77967.37779
+51,North America,Drug use,86329.99596
+52,North America,Unsafe sex,15433.609559999999
+53,North America,Smoking,466793.5599
+54,North America,Low physical activity,75520.11598
+55,North America,Diet low in fruits,85141.53039
+56,North America,Diet low in vegetables,72161.01789
+57,North America,Diet high in sodium,99270.1976
+58,North America,Diet low in whole grains,136162.6819
+59,North America,Diet low in nuts and seeds,102445.8666
+60,Sub-Saharan Africa,Alcohol use,292071.8852
+61,Sub-Saharan Africa,Drug use,50467.10297
+62,Sub-Saharan Africa,Unsafe sex,874305.2602
+63,Sub-Saharan Africa,Smoking,203983.9216
+64,Sub-Saharan Africa,Low physical activity,43311.258760000004
+65,Sub-Saharan Africa,Diet low in fruits,132877.1631
+66,Sub-Saharan Africa,Diet low in vegetables,105064.8417
+67,Sub-Saharan Africa,Diet high in sodium,61880.47562999999
+68,Sub-Saharan Africa,Diet low in whole grains,143083.3697
+69,Sub-Saharan Africa,Diet low in nuts and seeds,90980.04872
