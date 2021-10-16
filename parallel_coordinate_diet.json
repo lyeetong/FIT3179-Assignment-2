@@ -19,7 +19,6 @@
   "width": "container",
   "height": 350,
   "padding": {"top": 30, "bottom": 20},
-
   "transform": [
     {"filter": "datum['Diet high in sodium']"},
     {"window": [{"op": "count", "as": "index"}]},
@@ -52,58 +51,80 @@
     },
     {
       "mark": "line",
-          "params": [
-            {
-              "name": "Year",
-              "value": [{"Year": 2015}],
-              "select": {"type": "point", "fields": ["Year"]},
-              "bind": {
-                "name": "Year",
-                "input": "range",
-                "min": 2010,
-                "max": 2017,
-                "step": 1
-              }
-            },
-            {
-              "name": "hovered",
-              "select": {
-                "type": "point",
-                "fields": ["Region"],
-                "toggle": false,
-                "on": "mouseover"
-              }
-            },
-            {
-              "name": "clicked",
-              "select": {"type": "point", "fields": ["Region"]}
-            }
-          ],
-          "transform": [{"filter": {"param": "Year"}}],
+      "params": [
+        {
+          "name": "Year",
+          "value": [{"Year": 2015}],
+          "select": {"type": "point", "fields": ["Year"]},
+          "bind": {
+            "name": "Year",
+            "input": "range",
+            "min": 2010,
+            "max": 2017,
+            "step": 1
+          }
+        },
+        {
+          "name": "hovered",
+          "select": {
+            "type": "point",
+            "fields": ["Region"],
+            "toggle": false,
+            "on": "mouseover"
+          }
+        },
+        {"name": "clicked", "select": {"type": "point", "fields": ["Region"]}}
+      ],
+      "transform": [{"filter": {"param": "Year"}}],
       "encoding": {
-        "color": {"type": "nominal", "field": "Region", "scale": {"scheme": "category20"}, "legend": null},
+        "color": {
+          "type": "nominal",
+          "field": "Region",
+          "scale": {"scheme": "category20"},
+          "legend": null
+        },
         "detail": {"type": "nominal", "field": "index"},
         "opacity": {
-              "condition": {
-                "test": {
-                  "or": [
-                    {"param": "hovered", "empty": false},
-                    {"param": "clicked", "empty": false}
-                  ]
-                },
-                "value": 0.8
-              },
-              "value": 0
+          "condition": {
+            "test": {
+              "or": [
+                {"param": "hovered", "empty": true},
+                {"param": "clicked", "empty": false}
+              ]
             },
+            "value": 0.8
+          },
+          "value": 0
+        },
         "x": {"type": "nominal", "field": "key"},
         "y": {"type": "quantitative", "field": "norm_val", "axis": null},
         "tooltip": [
           {"type": "nominal", "field": "Region"},
-          {"type": "quantitative", "field": "Diet high in sodium", "format": ".2f"},          
-          {"type": "quantitative", "field": "Diet low in fruits", "format": ".2f"},
-          {"type": "quantitative", "field": "Diet low in nuts and seeds", "format": ".2f"},
-          {"type": "quantitative", "field": "Diet low in vegetables", "format": ".2f"},
-          {"type": "quantitative", "field": "Diet low in whole grains", "format": ".2f"}
+          {
+            "type": "quantitative",
+            "field": "Diet high in sodium",
+            "format": ".2f"
+          },
+          {
+            "type": "quantitative",
+            "field": "Diet low in fruits",
+            "format": ".2f"
+          },
+          {
+            "type": "quantitative",
+            "field": "Diet low in nuts and seeds",
+            "format": ".2f"
+          },
+          {
+            "type": "quantitative",
+            "field": "Diet low in vegetables",
+            "format": ".2f"
+          },
+          {
+            "type": "quantitative",
+            "field": "Diet low in whole grains",
+            "format": ".2f"
+          }
         ]
       }
     },
@@ -160,7 +181,12 @@
     },
     "view": {"stroke": "transparent"},
     "style": {
-      "label": {"baseline": "middle", "align": "right", "dx": -5, "color": "white"},
+      "label": {
+        "baseline": "middle",
+        "align": "right",
+        "dx": -5,
+        "color": "white"
+      },
       "tick": {"orient": "horizontal"}
     }
   }
