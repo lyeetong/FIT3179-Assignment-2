@@ -23,8 +23,8 @@
       "mark": {
         "type": "text",
         "fontSize": 100,
-        "x": 260,
-        "y": 190,
+        "x": 280,
+        "y": 220,
         "opacity": 0.25,
         "color": "white"
       },
