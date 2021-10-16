@@ -105,13 +105,13 @@
         },
         {
           "calculate": "datum['Deaths by Physical Habits']+datum['Deaths by Diet Practices']",
-          "as": "Total Deaths per 100,000 Population"
+          "as": "Deaths per 100,000 Population"
         }
       ],
       "mark": {"type": "geoshape"},
       "encoding": {
         "color": {
-          "field": "Total Deaths per 100,000 Population",
+          "field": "Deaths per 100,000 Population",
           "type": "quantitative",
           "scale": {
             "type": "threshold",
