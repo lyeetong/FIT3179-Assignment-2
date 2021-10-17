@@ -28,7 +28,7 @@
       "field": "Death Count",
       "type": "quantitative",
       "scale": {"scheme": "GoldRed", "type": "linear", "reverse": false},
-      "legend": {"title": "Frequency", "titleFontSize": 12, "titlePadding": 4, "titleColor": "white", "labelColor": "white"}
+      "legend": {"title": "Death Count", "titleFontSize": 12, "titlePadding": 4, "titleColor": "white", "labelColor": "white"}
     }
   },
   "config": {
